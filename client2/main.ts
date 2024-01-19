@@ -7,8 +7,9 @@ import type { AppRouter } from '../server2/index';
 const trpc = createTRPCClient < AppRouter > ({
     links: [
         httpBatchLink({
-            url: 'http://localhost:5000',
+            url: 'https://gq6t6z-5000.csb.app/',
         }),
+        
     ],
 });
 
