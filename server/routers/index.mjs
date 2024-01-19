@@ -1,4 +1,5 @@
 import { trpc } from "../trpc.mjs";
+import { userRouter } from "./users.mjs";
 
 export const appRouter = trpc.router({
     sayHi: trpc.procedure.query(() => {
@@ -13,5 +14,7 @@ export const appRouter = trpc.router({
         console.log(`client says${req.input}`);
         return true
 
-    })
+    }),
+    users: userRouter
 })
+export const mergedRouters = trpc.mergeRouters(appRouter, userRouter)
